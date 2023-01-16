@@ -18,16 +18,17 @@
 <script type="text/javascript">
     
     function callFunction() {
-        console.log("This is working");
         var arrVal = document.getElementById("array").value;
         var x = document.getElementById("target").value;
+        
         var arr = [];
         var arrStr = arrVal.split(",");
         for (var i = 0; i < arrStr.length; i++) {
             arr.push(parseInt(arrStr[i]));
         }
-        console.log(arr);
+        
         var result = fourSum(arr, parseInt(x));
+        
         function printArray(a) {
             let s = "";
             for (let item of a) {
@@ -37,9 +38,9 @@
             return s;
         };
         var str = printArray(result);
-        //console.log(result.toString());
+        
         document.getElementById("result").innerHTML = str;
     };
 </script>
 </html>
-<!--1,3,1,0,5,0,1,1,6,2,2,4,1,4-->
+<!-- Test Values: 1,3,1,0,5,0,1,1,6,2,2,4,1,4-->
