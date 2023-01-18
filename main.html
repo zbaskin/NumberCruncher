@@ -16,7 +16,15 @@
     <p id="result"></p>
 </body>
 <script type="text/javascript">
-    
+    function printArray(a) {
+        let s = "";
+        for (let item of a) {
+            if (Array.isArray(item)) s += "[" + printArray(item) + "]";
+            else s += item + ", ";
+        }
+        return s;
+    };
+
     function callFunction() {
         var arrVal = document.getElementById("array").value;
         var x = document.getElementById("target").value;
@@ -28,17 +36,8 @@
         }
         
         var result = fourSum(arr, parseInt(x));
-        
-        function printArray(a) {
-            let s = "";
-            for (let item of a) {
-                if (Array.isArray(item)) s += "[" + printArray(item) + "]";
-                else s += item + ", ";
-            }
-            return s;
-        };
         var str = printArray(result);
-        
+
         document.getElementById("result").innerHTML = str;
     };
 </script>
