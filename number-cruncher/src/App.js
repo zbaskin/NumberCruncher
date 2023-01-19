@@ -4,6 +4,22 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+      <h1>Number Cruncher</h1>
+      <form>
+          <label for="array">Number Array: </label>
+          <input type="text" id="array" name="array" /><br /><br />
+          <label for="target">Target: </label>
+          <input type="text" id="target" name="target" /><br /><br />
+          <input type="button" onclick="callFunction()" value="Submit" />
+      </form>
+      <p id="result"></p>
+    </div>
+  );
+}
+/*
+function App() {
+  return (
+    <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -21,5 +37,5 @@ function App() {
     </div>
   );
 }
-
+*/
 export default App;
