@@ -24,6 +24,3 @@ const fourSum = function (nums, target) {
     console.log(Object.values(result))
     return Object.values(result)
 }
-var a = [1,3,1,0,5,0,1,1,6,2,2,4,1,4];
-var x = 8;
-console.log(fourSum(a,x));
