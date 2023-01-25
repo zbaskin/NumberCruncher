@@ -13,7 +13,8 @@
         <input type="text" id="target" name="target"><br><br>
         <input type="button" onclick="callFunction()" value="Submit">
     </form>
-    <p id="result"></p>
+    <p id="result1"></p>
+    <p id="result2"></p>
 </body>
 <script type="text/javascript">
     function printArray(a) {
@@ -35,10 +36,13 @@
             arr.push(parseInt(arrStr[i]));
         }
         
-        var result = fourSum(arr, parseInt(x));
-        var str = printArray(result);
+        var result1 = fourSum(arr, parseInt(x));
+        var result2 = combinationSum(arr, parseInt(x));
+        var str1 = printArray(result1);
+        var str2 = printArray(result2);
 
-        document.getElementById("result").innerHTML = str;
+        document.getElementById("result1").innerHTML = str1;
+        document.getElementById("result2").innerHTML = str2;
     };
 </script>
 </html>
