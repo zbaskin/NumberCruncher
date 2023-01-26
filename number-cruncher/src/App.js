@@ -1,5 +1,50 @@
-import logo from './logo.svg';
 import './App.css';
+
+const combinationSum = function (candidates, target) {
+  let res = [];
+  let temp = [];
+  let iterate = (index,sum) => {
+      if (sum>target) return;
+      if (sum === target) {
+          res.push([...temp]);
+          return;
+      }
+      for (let i =index; i<candidates.length;i++) {
+          if (candidates[i]>target) continue;
+          temp.push(candidates[i]);
+          iterate(i, sum+candidates[i]);
+          temp.pop();
+      }
+  }
+  iterate(0,0);
+  console.log(res);
+  return res;
+}
+
+function printArray(a) {
+  let s = "";
+  for (let item of a) {
+      if (Array.isArray(item)) s += "[" + printArray(item) + "]";
+      else s += item + ", ";
+  }
+  return s;
+};
+
+function callFunction() {
+  var arrVal = document.getElementById("array").value;
+  var x = document.getElementById("target").value;
+  
+  var arr = [];
+  var arrStr = arrVal.split(",");
+  for (var i = 0; i < arrStr.length; i++) {
+      arr.push(parseInt(arrStr[i]));
+  }
+
+  var result = combinationSum(arr, parseInt(x));
+  var str = printArray(result);
+
+  document.getElementById("result").innerHTML = str;
+};
 
 function App() {
   return (
@@ -10,32 +55,10 @@ function App() {
           <input type="text" id="array" name="array" /><br /><br />
           <label for="target">Target: </label>
           <input type="text" id="target" name="target" /><br /><br />
-          <input type="button" onclick="callFunction()" value="Submit" />
+          <input type="button" onClick={callFunction} value="Submit" />
       </form>
       <p id="result"></p>
     </div>
   );
 }
-/*
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-*/
 export default App;
