@@ -53,11 +53,11 @@ class Form extends Component {
       <div className="App">
         <h1>Number Cruncher</h1>
         <form>
-            <label htmlFor="array">Number Array: </label>
-            <input type="text" id="array" name="array" /><br /><br />
-            <label htmlFor="target">Target: </label>
-            <input type="text" id="target" name="target" /><br /><br />
-            <input type="button" onClick={callFunction} value="Submit" />
+          <label htmlFor="array">Number Array: </label>
+          <input type="text" id="array" name="array" /><br /><br />
+          <label htmlFor="target">Target: </label>
+          <input type="text" id="target" name="target" /><br /><br />
+          <input type="button" onClick={callFunction} value="Submit" />
         </form>
         <p id="result"></p>
       </div>
