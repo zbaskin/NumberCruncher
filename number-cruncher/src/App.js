@@ -7,14 +7,14 @@ const combinationSum = function (candidates, target) {
   let iterate = (index, sum) => {
       if (sum > target) return;
       if (sum === target) {
-          res.push([...temp]);
-          return;
+        res.push([...temp]);
+        return;
       }
       for (let i = index; i < candidates.length; i++) {
-          if (candidates[i] > target || candidates[i] == 0) continue;
-          temp.push(candidates[i]);
-          iterate(i, sum + candidates[i]);
-          temp.pop();
+        if (candidates[i] > target || candidates[i] == 0) continue;
+        temp.push(candidates[i]);
+        iterate(i, sum + candidates[i]);
+        temp.pop();
       }
   }
   iterate(0,0);
@@ -25,8 +25,8 @@ const combinationSum = function (candidates, target) {
 function printArray(a) {
   let s = "";
   for (let item of a) {
-      if (Array.isArray(item)) s += "[" + printArray(item) + "]";
-      else s += item + ", ";
+    if (Array.isArray(item)) s += "[" + printArray(item) + "]";
+    else s += item + ", ";
   }
   return s;
 };
@@ -38,7 +38,7 @@ function callFunction() {
   var arr = [];
   var arrStr = arrVal.split(",");
   for (var i = 0; i < arrStr.length; i++) {
-      arr.push(parseInt(arrStr[i]));
+    arr.push(parseInt(arrStr[i]));
   }
 
   var result = combinationSum(arr, parseInt(x));
