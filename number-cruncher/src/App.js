@@ -25,8 +25,11 @@ const combinationSum = function (candidates, target) {
 function printArray(a) {
   let s = "";
   for (let item of a) {
-    if (Array.isArray(item)) s += "[" + printArray(item) + "]";
-    else s += item + ", ";
+    s += "["
+    for (let i = 0; i < item.length - 1; i++) {
+      s += item[i] + ", ";
+    }
+    s += item[item.length - 1] + "]"
   }
   return s;
 };
