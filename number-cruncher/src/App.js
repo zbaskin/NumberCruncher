@@ -1,72 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-
-const combinationSum = function (candidates, target) {
-  let res = [];
-  let temp = [];
-  let iterate = (index, sum) => {
-      if (sum > target) return;
-      if (sum === target) {
-        res.push([...temp]);
-        return;
-      }
-      for (let i = index; i < candidates.length; i++) {
-        if (candidates[i] > target || candidates[i] == 0) continue;
-        temp.push(candidates[i]);
-        iterate(i, sum + candidates[i]);
-        temp.pop();
-      }
-  }
-  iterate(0,0);
-  console.log(res);
-  return res;
-}
-
-function printArray(a) {
-  let s = "";
-  for (let item of a) {
-    s += "["
-    for (let i = 0; i < item.length - 1; i++) {
-      s += item[i] + ", ";
-    }
-    s += item[item.length - 1] + "]"
-  }
-  return s;
-};
-
-function callFunction() {
-  var arrVal = document.getElementById("array").value;
-  var x = document.getElementById("target").value;
-  
-  var arr = [];
-  var arrStr = arrVal.split(",");
-  for (var i = 0; i < arrStr.length; i++) {
-    arr.push(parseInt(arrStr[i]));
-  }
-
-  var result = combinationSum(arr, parseInt(x));
-  var str = printArray(result);
-
-  document.getElementById("result").innerHTML = str;
-};
-
-class Form extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>Number Cruncher</h1>
-        <form>
-          <label htmlFor="array">Number Array: </label>
-          <input type="text" id="array" name="array" /><br /><br />
-          <label htmlFor="target">Target: </label>
-          <input type="text" id="target" name="target" /><br /><br />
-          <input type="button" onClick={callFunction} value="Submit" />
-        </form>
-        <p id="result"></p>
-      </div>
-    );
-  }
-}
+import Form from './Form.js';
 
 function App() {
   return (
@@ -74,3 +8,5 @@ function App() {
   );
 }
 export default App;
+
+// Test Values: 1,3,1,0,5,0,1,1,6,2,2,4,1,4
