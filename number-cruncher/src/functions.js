@@ -1,8 +1,16 @@
+function removeDuplicates(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        arr[i].sort();
+    }
+    var set = new Set(arr.map(JSON.stringify));
+    var newArr = Array.from(set, JSON.parse);
+    return newArr.reverse();
+}
+
 const combinationSum = function (candidates, target) {
     let res = [];
     let temp = [];
-    let tolerance = 0.000001
-    console.log(Math.abs(6.6 - (2.2+4.4)) < tolerance)
+    let tolerance = 0.000001;
     let iterate = (index, sum) => {
         if (sum > target && Math.abs(sum - target) > tolerance) return;
         if (Math.abs(sum - target) < tolerance) {
@@ -17,6 +25,7 @@ const combinationSum = function (candidates, target) {
         }
     }
     iterate(0, 0);
+    res = removeDuplicates(res);
     console.log(res);
     return res;
 }
