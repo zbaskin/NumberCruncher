@@ -1,7 +1,27 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  background-color: #04AA6D;
+  color: white;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
+.title {
+  font-style: italic;
+}
+
+.form {
+  font-weight: bold;
+} 
+
+#result {
+  font-size: large;
+  max-width: 80%;
+}
+
+/*
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -11,4 +31,5 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} 
+*/

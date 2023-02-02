@@ -4,7 +4,7 @@ function removeDuplicates(arr) {
     }
     var set = new Set(arr.map(JSON.stringify));
     var newArr = Array.from(set, JSON.parse);
-    return newArr.reverse();
+    return newArr.sort((a, b) => { return a.length - b.length });
 }
 
 const combinationSum = function (candidates, target) {
