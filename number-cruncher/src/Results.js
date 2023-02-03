@@ -16,6 +16,11 @@ class Results extends Component {
         return (
             <div className="result-container">
                 {rows}
+                {
+                    this.props.moreResults ? 
+                    <button onClick={this.props.onClick}>Load 10 More Results</button> : 
+                    <p>&nbsp;</p>
+                }
             </div>
         );
     }
