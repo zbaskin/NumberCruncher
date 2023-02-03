@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Form extends Component {
     render() {
       return (
-        <div className="number-cruncher">
+        <div className="form-container">
             <h1 className="title">Number Cruncher</h1>
             <form className="form">
                 <label htmlFor="array">Number Array: </label>
