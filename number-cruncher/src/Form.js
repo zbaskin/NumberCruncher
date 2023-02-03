@@ -7,10 +7,9 @@ class Form extends Component {
             <h1 className="title">Number Cruncher</h1>
             <form className="form">
                 <label htmlFor="array">Number Array: </label>
-                <textarea type="text" id="array" name="array" /><br /><br />
+                <textarea type="text" id="array" name="array" onChange={this.props.onChange} /><br /><br />
                 <label htmlFor="target">Target: </label>
-                <input type="text" id="target" name="target" /><br /><br />
-                <input type="button" onClick={this.props.onClick} value="Submit" />
+                <input type="text" id="target" name="target" onChange={this.props.onChange} /><br /><br />
             </form>
         </div>
       );

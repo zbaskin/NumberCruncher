@@ -28,7 +28,7 @@ function App() {
 
   return (
     <div className="App">
-      <Form onClick={getCombos} />
+      <Form onChange={getCombos} />
       <Results 
         combinations={comboRange} 
         onClick={getMoreResults} 
