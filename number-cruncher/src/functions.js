@@ -1,3 +1,15 @@
+function printArray(a) {
+    let s = "";
+    for (let item of a) {
+        s += "["
+        for (let i = 0; i < item.length - 1; i++) {
+            s += item[i] + ", ";
+        }
+        s += item[item.length - 1] + "]"
+    }
+    return s;
+};
+
 function removeDuplicates(arr) {
     for (let i = 0; i < arr.length; i++) {
         arr[i].sort();
@@ -30,4 +42,19 @@ const combinationSum = function (candidates, target) {
     return res;
 }
 
-export default combinationSum;
+function callFunction() {
+    var arrVal = document.getElementById("array").value;
+    var x = document.getElementById("target").value;
+    
+    var arr = [];
+    var arrStr = arrVal.split(",");
+    for (var i = 0; i < arrStr.length; i++) {
+        arr.push(parseFloat(arrStr[i]));
+    }
+  
+    var result = combinationSum(arr, parseFloat(x));
+  
+    return result;
+};
+
+export default callFunction;

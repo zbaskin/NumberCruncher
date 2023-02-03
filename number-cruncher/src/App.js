@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
 import Form from './Form.js';
+import Results from './Results.js';
+import callFunction from './functions.js'
+import { useState } from 'react';
 
 function App() {
+  const [combos, setCombos] = useState(0);
+
+  const getCombos = () => {
+    var combinations = callFunction();
+    setCombos(combinations);
+  }
+
   return (
-    <Form />
+    <div className="App">
+      <Form onClick={getCombos} />
+      <Results combinations={combos} />
+    </div>
   );
 }
 export default App;
