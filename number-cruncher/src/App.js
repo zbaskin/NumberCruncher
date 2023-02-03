@@ -13,7 +13,8 @@ function App() {
   const getCombos = () => {
     var combinations = callFunction();
     setCombos(combinations);
-    setComboRange(combinations.slice(0, range));
+    setRange(10);
+    setComboRange(combinations.slice(0, 10));
     if (combinations.length > range) setMoreResults(true); 
     else setMoreResults(false);
   }
