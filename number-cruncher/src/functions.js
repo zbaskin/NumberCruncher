@@ -1,15 +1,3 @@
-function printArray(a) {
-    let s = "";
-    for (let item of a) {
-        s += "["
-        for (let i = 0; i < item.length - 1; i++) {
-            s += item[i] + ", ";
-        }
-        s += item[item.length - 1] + "]"
-    }
-    return s;
-};
-
 function removeDuplicates(arr) {
     for (let i = 0; i < arr.length; i++) {
         arr[i].sort();

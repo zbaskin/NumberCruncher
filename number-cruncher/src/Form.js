@@ -10,6 +10,8 @@ class Form extends Component {
                 <textarea type="text" id="array" name="array" onChange={this.props.onChange} /><br /><br />
                 <label htmlFor="target">Target: </label>
                 <input type="text" id="target" name="target" onChange={this.props.onChange} /><br /><br />
+                <input type="checkbox" id="unique" name="unique" />
+                <label htmlFor="unique">Only Unique Values</label>
             </form>
         </div>
       );

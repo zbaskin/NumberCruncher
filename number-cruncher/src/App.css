@@ -5,6 +5,7 @@
   color: white;
   align-items: center;
   display: flex;
+  user-select: none;
   flex-direction: column;
 }
 

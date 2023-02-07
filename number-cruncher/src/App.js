@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Form from './Form.js';
 import Results from './Results.js';
 import callFunction from './functions.js';
@@ -10,13 +10,20 @@ function App() {
   const [range, setRange] = useState(10);
   const [hasMoreResults, setMoreResults] = useState(false);
 
+  /*useEffect(() => {
+    const timeoutID = setTimeout(() => callFunction(), 1000);
+    return () => clearTimeout(timeoutID);
+  }, [combos]);*/
+
   const getCombos = () => {
-    var combinations = callFunction();
-    setCombos(combinations);
-    setRange(10);
-    setComboRange(combinations.slice(0, 10));
-    if (combinations.length > range) setMoreResults(true); 
-    else setMoreResults(false);
+    setTimeout(() => {
+      var combinations = callFunction();
+      setCombos(combinations);
+      setRange(10);
+      setComboRange(combinations.slice(0, 10));
+      if (combinations.length > range) setMoreResults(true); 
+      else setMoreResults(false);
+    }, 1000);
   }
 
   const getMoreResults = () => {
