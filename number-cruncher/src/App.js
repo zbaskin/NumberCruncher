@@ -9,11 +9,8 @@ function App() {
   const [comboRange, setComboRange] = useState([]);
   const [range, setRange] = useState(10);
   const [hasMoreResults, setMoreResults] = useState(false);
-
-  /*useEffect(() => {
-    const timeoutID = setTimeout(() => callFunction(), 1000);
-    return () => clearTimeout(timeoutID);
-  }, [combos]);*/
+  const [uniqueChecked, setUnique] = useState(false);
+  const [negativeChecked, setNegative] = useState(false);
 
   const getCombos = () => {
     setTimeout(() => {
@@ -33,9 +30,23 @@ function App() {
     else setMoreResults(false);
   }
 
+  const updateUnique = () => {
+    setUnique(!uniqueChecked);
+  }
+
+  const updateNegative = () => {
+    setNegative(!negativeChecked);
+  }
+
   return (
     <div className="App">
-      <Form onChange={getCombos} />
+      <Form 
+        onChange={getCombos}
+        uniqueChecked={uniqueChecked}
+        uniqueClick={updateUnique}
+        negativeChecked={negativeChecked}
+        negativeClick={updateNegative}  
+      />
       <Results 
         combinations={comboRange} 
         onClick={getMoreResults} 
