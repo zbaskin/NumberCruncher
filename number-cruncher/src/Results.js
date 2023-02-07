@@ -8,7 +8,10 @@ class Results extends Component {
         for (let i = 0; i < combinations.length; i++) {
             rows.push(
                 <p className="result" key={i}>
-                    <span className="result-text">{JSON.stringify(combinations[i])}</span>
+                    <span className="result-text" 
+                        onClick={(e) => {navigator.clipboard.writeText(e.target.outerText)}}>
+                        {JSON.stringify(combinations[i])}
+                    </span>
                 </p>
             );
         }
