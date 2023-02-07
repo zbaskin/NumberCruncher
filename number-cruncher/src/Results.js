@@ -19,8 +19,10 @@ class Results extends Component {
         var displayText;
         if (rows.length == 0) {
             displayText = <p className="no-results">No Results Found</p>;
+        } else if (!this.props.moreResults) {
+            displayText = <p className="no-results">End of Results</p>;
         } else {
-            displayText = <p>&nbsp;</p>
+            displayText = <p>&nbsp;</p>;
         }
 
         return (
@@ -35,5 +37,9 @@ class Results extends Component {
         );
     }
 }
+
+// For future use:
+// <span className="tooltiptext" id="myTooltip">Copy to clipboard</span>
+// https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
 
 export default Results;
