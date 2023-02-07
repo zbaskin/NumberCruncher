@@ -12,32 +12,29 @@ function App() {
   const [uniqueChecked, setUnique] = useState(true);
   const [negativeChecked, setNegative] = useState(false);
 
+  const setVariables = (combos, cRange) => {
+    setCombos(combos);
+    setRange(cRange);
+    setComboRange(combos.slice(0, cRange));
+    if (combos.length > range) setMoreResults(true);
+    else setMoreResults(false);
+  }
+
   const getCombos = () => {
     setTimeout(() => {
       var combinations = callFunction(uniqueChecked);
-      setCombos(combinations);
-      setRange(10);
-      setComboRange(combinations.slice(0, 10));
-      if (combinations.length > range) setMoreResults(true); 
-      else setMoreResults(false);
+      setVariables(combinations, 10);
     }, 1000);
   }
 
   const getMoreResults = () => {
-    setRange(range + 10);
-    setComboRange(combos.slice(0, range + 10));
-    if (combos.length > range) setMoreResults(true); 
-    else setMoreResults(false);
+    setVariables(combos, range + 10);
   }
 
   const updateUnique = () => {
     setUnique(!uniqueChecked);
     var combinations = callFunction(!uniqueChecked);
-    setCombos(combinations);
-    setRange(10);
-    setComboRange(combinations.slice(0, 10));
-    if (combinations.length > range) setMoreResults(true); 
-    else setMoreResults(false);
+    setVariables(combinations, 10);
   }
 
   const updateNegative = () => {
@@ -69,4 +66,4 @@ export default App;
 // 205.17, 315.14, 1016.50, 1427.41, 870.00, 163.31, 2397.93, 2742.81, 51399.55, 8766.58, 75.98, 53.35
 // = 4416.48
 
-// TODO: fix freeze on large numbers, copy text to clipboard, handle negative numbers, clean up multiple code instances (setter functions)
+// TODO: fix freeze on large numbers, copy text to clipboard, handle negative numbers
