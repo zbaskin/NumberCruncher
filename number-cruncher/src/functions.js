@@ -7,7 +7,7 @@ function removeDuplicates(arr) {
     return newArr.sort((a, b) => { return a.length - b.length });
 }
 
-const combinationSum = function (candidates, target) {
+const combinationSum = function (candidates, target, isUnique) {
     let res = [];
     let temp = [];
     let tolerance = 0.000001;
@@ -20,7 +20,8 @@ const combinationSum = function (candidates, target) {
         for (let i = index; i < candidates.length; i++) {
             if (candidates[i] > target || candidates[i] <= 0 || isNaN(candidates[i])) continue;
             temp.push(candidates[i]);
-            iterate(i, sum + candidates[i]);
+            if (isUnique) iterate(i + 1, sum + candidates[i]);
+            else iterate(i, sum + candidates[i]);
             temp.pop();
         }
     }
@@ -30,7 +31,7 @@ const combinationSum = function (candidates, target) {
     return res;
 }
 
-function callFunction() {
+function callFunction(uniqueChecked) {
     var arrVal = document.getElementById("array").value;
     var x = document.getElementById("target").value;
     
@@ -40,7 +41,7 @@ function callFunction() {
         arr.push(parseFloat(arrStr[i]));
     }
   
-    var result = combinationSum(arr, parseFloat(x));
+    var result = combinationSum(arr, parseFloat(x), uniqueChecked);
   
     return result;
 };
