@@ -15,6 +15,7 @@ const combinationSum = function (candidates, target, isUnique) {
     candidates.sort();
     let iterate = (index, sum, count) => {
         if (count > 100) return;
+        if (res.length > 1000) return;
         if (sum > target && Math.abs(sum - target) > tolerance) return;
         if (Math.abs(sum - target) < tolerance) {
             res.push([...temp]);
