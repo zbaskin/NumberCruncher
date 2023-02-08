@@ -16,13 +16,13 @@ function App() {
     setCombos(combos);
     setRange(cRange);
     setComboRange(combos.slice(0, cRange));
-    if (combos.length > range) setMoreResults(true);
+    if (combos.length > range + 10) setMoreResults(true);
     else setMoreResults(false);
   }
 
   const getCombos = () => {
     setTimeout(() => {
-      var combinations = callFunction(uniqueChecked);
+      var combinations = callFunction(uniqueChecked, negativeChecked);
       setVariables(combinations, 10);
     }, 1000);
   }
@@ -33,12 +33,14 @@ function App() {
 
   const updateUnique = () => {
     setUnique(!uniqueChecked);
-    var combinations = callFunction(!uniqueChecked);
+    var combinations = callFunction(!uniqueChecked, negativeChecked);
     setVariables(combinations, 10);
   }
 
   const updateNegative = () => {
     setNegative(!negativeChecked);
+    var combinations = callFunction(uniqueChecked, !negativeChecked);
+    setVariables(combinations, 10);
   }
 
   return (
@@ -66,4 +68,4 @@ export default App;
 // 205.17, 315.14, 1016.50, 1427.41, 870.00, 163.31, 2397.93, 2742.81, 51399.55, 8766.58, 75.98, 53.35
 // = 4416.48
 
-// TODO: fix freeze on large numbers, copy text to clipboard, handle negative numbers
+// TODO: fix freeze on large numbers, copy text to clipboard UI, handle negative numbers
