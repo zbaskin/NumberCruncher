@@ -7,31 +7,34 @@ function removeDuplicates(arr) {
     return newArr.sort((a, b) => { return a.length - b.length });
 }
 
-const combinationSum = function (candidates, target, isUnique, isNegative) {
+const combinationSum = function (candidates, target, isUnique) {
     let res = [];
     let temp = [];
     let tolerance = 0.000001;
-    let iterate = (index, sum) => {
+
+    candidates.sort();
+    let iterate = (index, sum, count) => {
+        if (count > 100) return;
         if (sum > target && Math.abs(sum - target) > tolerance) return;
         if (Math.abs(sum - target) < tolerance) {
             res.push([...temp]);
             return;
         }
         for (let i = index; i < candidates.length; i++) {
-            if (candidates[i] > target || candidates[i] <= 0 || isNaN(candidates[i])) continue;
+            if (candidates[i] == 0 || isNaN(candidates[i])) continue;
             temp.push(candidates[i]);
-            if (isUnique) iterate(i + 1, sum + candidates[i]);
-            else iterate(i, sum + candidates[i]);
+            if (isUnique || candidates[i] < 0) iterate(i + 1, sum + candidates[i], count + 1);
+            else iterate(i, sum + candidates[i], count + 1);
             temp.pop();
         }
     }
-    iterate(0, 0);
+    iterate(0, 0, 0);
     res = removeDuplicates(res);
     console.log(res);
     return res;
 }
 
-function callFunction(uniqueChecked, negativeChecked) {
+function callFunction(uniqueChecked) {
     var arrVal = document.getElementById("array").value;
     var x = document.getElementById("target").value;
     
@@ -41,11 +44,9 @@ function callFunction(uniqueChecked, negativeChecked) {
         arr.push(parseFloat(arrStr[i]));
     }
   
-    var result = combinationSum(arr, parseFloat(x), uniqueChecked, negativeChecked);
+    var result = combinationSum(arr, parseFloat(x), uniqueChecked);
   
     return result;
 };
 
 export default callFunction;
-
-// ((isNegative && (candidates[i] == 0)) || (!isNegative && (candidates[i] <= 0)))

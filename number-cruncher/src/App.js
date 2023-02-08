@@ -10,7 +10,6 @@ function App() {
   const [range, setRange] = useState(10);
   const [hasMoreResults, setMoreResults] = useState(false);
   const [uniqueChecked, setUnique] = useState(true);
-  const [negativeChecked, setNegative] = useState(false);
 
   const setVariables = (combos, cRange) => {
     setCombos(combos);
@@ -22,7 +21,7 @@ function App() {
 
   const getCombos = () => {
     setTimeout(() => {
-      var combinations = callFunction(uniqueChecked, negativeChecked);
+      var combinations = callFunction(uniqueChecked);
       setVariables(combinations, 10);
     }, 1000);
   }
@@ -33,13 +32,7 @@ function App() {
 
   const updateUnique = () => {
     setUnique(!uniqueChecked);
-    var combinations = callFunction(!uniqueChecked, negativeChecked);
-    setVariables(combinations, 10);
-  }
-
-  const updateNegative = () => {
-    setNegative(!negativeChecked);
-    var combinations = callFunction(uniqueChecked, !negativeChecked);
+    var combinations = callFunction(!uniqueChecked);
     setVariables(combinations, 10);
   }
 
@@ -49,8 +42,6 @@ function App() {
         onChange={getCombos}
         uniqueChecked={uniqueChecked}
         uniqueClick={updateUnique}
-        negativeChecked={negativeChecked}
-        negativeClick={updateNegative}  
       />
       <Results 
         combinations={comboRange} 
